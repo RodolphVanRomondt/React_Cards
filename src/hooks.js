@@ -14,14 +14,14 @@ const useFlip = () => {
 
 
 const useAxios = (url) => {
-    const [cards, setCards] = useState([]);
+    const [resource, setResource] = useState([]);
 
-    const addCard = async () => {
-        const response = await axios.get(url);
-        setCards(cards => [...cards, { ...response.data, id: uuid() }]);
+    const addCard = async (name) => {
+        const response = name instanceof Object ? await axios.get(url): await axios.get(`${url}/${name}`);
+        setResource(resource => [...resource, { ...response.data, id: uuid() }]);
     };
 
-    return [cards, addCard];
+    return [resource, addCard];
 }
 
 

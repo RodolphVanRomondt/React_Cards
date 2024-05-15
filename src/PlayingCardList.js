@@ -6,7 +6,7 @@ import { useAxios } from "./hooks";
 /* Renders a list of playing cards.
  * Can also add a new card at random. */
 function CardTable() {
-  const [cards, addCard] = useAxios("https://deckofcardsapi.com/api/deck/new/draw/");
+  const [cards, addCard] = useAxios("https://deckofcardsapi.com/api/deck/new/draw");
 
   return (
     <div className="PlayingCardList">
@@ -24,5 +24,6 @@ function CardTable() {
 }
 
 CardTable.defaultProps = {};
+
 
 export default CardTable;
